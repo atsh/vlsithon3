@@ -1,0 +1,84 @@
+VERSION {1.0}
+PTDEF {instance} {pin} {cell} {edge} {clock_edge} {clock} {phase}
+BANNER
+  {Module} {darkbridge}
+  {Timing} {LATE}
+  {Slew Propagation} {WORST}
+  {Operating Condition} {ss_1.62_125}
+  {PVT Mode} {max}
+  {Tree Type} {worst_case}
+  {Process} {1.000}
+  {Voltage} {1.620}
+  {Temperature} {125.000}
+  {time unit} {1.000 ns}
+  {capacitance unit} {1.000 pF}
+  {resistance unit} {1.000 kOhm}
+  {TOOL} {v22.18-s118_1 ((64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64))}
+  {DATE} {August 15, 2026}
+END_BANNER
+PATH 1
+  VIEW  func_slow_125_1v62
+  CHECK_TYPE {Setup Check}
+  REF {core0/REGS_reg[11][24]} {CK}
+  ENDPT {core0/REGS_reg[11][24]} {SE} {SDFFX1_HS} {v} {leading} {CLK} {CLK(C)(P)(func_slow_125_1v62)*}
+  BEGINPT {core0/XIDATA_reg[10]} {Q} {DFFX4_HS} {^} {leading} {CLK} {CLK(D)(P)(func_slow_125_1v62)}
+  REQ_CLC
+    {} {Other End Arrival Time} {0.806}
+    {-} {Setup} {0.439}
+    {+} {Phase Shift} {4.800}
+    {=} {Required Time} {5.167}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {5.185}
+    {=} {Slack Time} {-0.018}
+  END_SLK_CLC
+  SLK -0.018
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {CLK} {^} {} {} {CLK} {} {} {} {0.003} {0.120} {0.000} {-0.018} {} {4} {(412.16, 31.60) } 
+    NET {} {} {} {} {} {CLK} {} {0.005} {0.000} {0.007} {0.120} {0.005} {-0.014} {} {} {} 
+    INST {core0/CTS_ccl_a_buf_00037} {A} {^} {Y} {^} {} {CLKBUFX8_HS} {0.231} {0.000} {0.167} {} {0.236} {0.218} {} {8} {(289.80, 343.16) (291.64, 342.24)} 
+    NET {} {} {} {} {} {core0/CTS_46} {} {0.010} {0.000} {0.168} {0.195} {0.246} {0.227} {} {} {} 
+    INST {core0/CTS_ccl_a_buf_00003} {A} {^} {Y} {^} {} {CLKBUFX8_HS} {0.290} {0.000} {0.146} {} {0.535} {0.517} {} {34} {(134.78, 637.56) (132.94, 638.48)} 
+    NET {} {} {} {} {} {core0/CTS_13} {} {0.004} {0.000} {0.146} {0.164} {0.539} {0.521} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {core0/XIDATA_reg[10]} {CK} {^} {Q} {^} {} {DFFX4_HS} {0.686} {0.010} {0.340} {} {1.226} {1.208} {} {7} {(206.08, 628.82) (212.52, 630.20)} 
+    NET {} {} {} {} {} {core0/XIDATA[10]} {} {0.010} {0.001} {0.340} {0.160} {1.236} {1.218} {} {} {} 
+    INST {core0/g138523} {B} {^} {Y} {v} {} {NAND2X4_HS} {0.300} {0.000} {0.240} {} {1.536} {1.518} {} {7} {(216.20, 223.56) (216.66, 224.02)} 
+    NET {} {} {} {} {} {core0/n_123} {} {0.001} {0.000} {0.240} {0.072} {1.537} {1.519} {} {} {} 
+    INST {core0/g138227} {A} {v} {Y} {v} {} {OR2X1_HS} {0.428} {0.000} {0.194} {} {1.965} {1.947} {} {5} {(206.08, 207.00) (205.16, 207.92)} 
+    NET {} {} {} {} {} {core0/n_276} {} {0.001} {0.000} {0.194} {0.032} {1.966} {1.948} {} {} {} 
+    INST {core0/g137999} {B} {v} {Y} {^} {} {NOR2X1} {0.242} {0.000} {0.229} {} {2.208} {2.190} {} {1} {(204.70, 240.58) (204.24, 241.04)} 
+    NET {} {} {} {} {} {core0/n_559} {} {0.000} {0.000} {0.229} {0.008} {2.208} {2.190} {} {} {} 
+    INST {core0/FE_OFC216_n_559} {A} {^} {Y} {^} {} {BUFX4} {0.575} {0.042} {0.481} {} {2.784} {2.766} {} {12} {(190.44, 240.58) (189.52, 241.04)} 
+    NET {} {} {} {} {} {core0/FE_OFN112_n_559} {} {0.000} {0.000} {0.481} {0.168} {2.784} {2.766} {} {} {} 
+    INST {core0/FE_OFC217_n_559} {A} {^} {Y} {^} {} {CLKBUFX2} {1.130} {0.061} {1.110} {} {3.913} {3.895} {} {11} {(188.60, 235.52) (188.14, 234.60)} 
+    NET {} {} {} {} {} {core0/n_558} {} {0.014} {0.000} {1.110} {0.202} {3.927} {3.909} {} {} {} 
+    INST {core0/FE_OFC218_n_559} {A} {^} {Y} {v} {} {INVX4} {1.204} {0.000} {0.948} {} {5.131} {5.113} {} {29} {(101.66, 227.24) (102.12, 226.32)} 
+    NET {} {} {} {} {} {core0/FE_OFN168_n_559} {} {0.055} {0.000} {0.959} {0.527} {5.185} {5.167} {} {} {} 
+  END_DATA_PATH
+  OTHER_ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_OTHER_ARR_CLC
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {CLK} {^} {} {} {CLK} {} {} {} {0.003} {0.117} {0.000} {0.018} {} {4} {(412.16, 31.60) } 
+    NET {} {} {} {} {} {CLK} {} {0.003} {0.000} {0.006} {0.117} {0.003} {0.021} {} {} {} 
+    INST {core0/CTS_ccl_a_buf_00038} {A} {^} {Y} {^} {} {CLKBUFX2_LP} {0.102} {0.000} {0.057} {} {0.105} {0.123} {} {1} {(236.44, 82.80) (235.98, 83.72)} 
+    NET {} {} {} {} {} {core0/FE_USKN5124_CTS_49} {} {0.000} {0.000} {0.057} {0.007} {0.105} {0.123} {} {} {} 
+    INST {core0/FE_USKC5124_CTS_49} {A} {^} {Y} {^} {} {BUFX2} {0.193} {0.000} {0.095} {} {0.298} {0.316} {} {2} {(217.58, 86.48) (217.12, 85.56)} 
+    NET {} {} {} {} {} {core0/CTS_49} {} {0.000} {0.000} {0.095} {0.014} {0.298} {0.317} {} {} {} 
+    INST {core0/CTS_ccl_a_buf_00035} {A} {^} {Y} {^} {} {CLKBUFX8_HS} {0.238} {0.000} {0.120} {} {0.536} {0.554} {} {8} {(212.98, 82.80) (211.14, 83.72)} 
+    NET {} {} {} {} {} {core0/CTS_47} {} {0.002} {0.000} {0.120} {0.123} {0.538} {0.556} {} {} {} 
+    INST {core0/CTS_ccl_a_buf_00029} {A} {^} {Y} {^} {} {CLKBUFX8_HS} {0.265} {0.000} {0.141} {} {0.803} {0.822} {} {36} {(174.34, 91.08) (172.50, 92.00)} 
+    NET {} {} {} {} {} {core0/CTS_25} {} {0.003} {0.000} {0.141} {0.155} {0.806} {0.824} {} {} {} 
+  END_CAP_CLK_PATH
+END_PATH 1
+
